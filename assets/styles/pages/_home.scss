@@ -1,0 +1,275 @@
+.accueil {
+
+    h2 {
+        font-size: 18px;
+        font-weight: 400;
+        height: 50px;
+        color: $dark;
+        @include flexCenter;
+    }
+
+    a {
+        font-size: 12px;
+        font-family: $textContent;
+    }
+
+    .section-home-bigTitle {
+        position: relative;
+
+        &::before {
+            content: '';
+            background: url('../img/jungle-stairs.jpg') center/cover;
+            filter: brightness(0.5);
+            position: absolute;
+            width: 100%;
+            height: 339px;
+            right: 0;
+            left: 0;
+
+            @media screen and (max-width: 900px) {
+                height: 152px;
+            }
+        }
+
+        * {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: $bigTitle;
+            font-size: 60px;
+            font-weight: 400;
+            color: $white;
+            text-align: center;
+            top: 120px;
+
+            @media screen and (max-width: 900px) {
+                font-size: 30px;
+                top: 50px;
+                justify-content: center;
+            }
+        }
+
+        p {
+            font-family: $title;
+            font-size: 30px;
+            color: $white;
+            text-align: center;
+            top: 200px;
+            padding-bottom: 220px;
+
+            @media screen and (max-width: 900px) {
+                font-size: 20px;
+                top: 80px;
+                justify-content: center;
+                padding-bottom: 80px;
+            }
+        }
+    }
+
+    .section-home-1 {
+        padding-top: 20px;
+
+        img {
+            width: 400px;
+            height: 300px;
+            border-radius: 5px;
+
+            @media screen and (max-width: 900px) {
+                width: 150px;
+                height: 120px;
+            }
+        }
+
+        p {
+            width: 400px;
+            height: 200px;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width: 900px) {
+                width: 150px;
+                height: 120px;
+            }
+        }
+
+        .container-home-1,
+        .container-home-3 {
+            @include flexCenter;
+            height: 400px;
+            background: $tertiary;
+
+            @media screen and (max-width: 900px) {
+                height: 142px;
+            }
+
+            .container-left {
+                width: 400px;
+                padding: 25px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                @media screen and (max-width: 900px) {
+                    height: 100px;
+                    width: 200px;
+                }
+            }
+
+            .container-right {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 400px;
+                padding: 25px;
+
+                .link-home {
+                    width: 400px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    @media screen and (max-width: 900px) {
+                        width: 150px;
+                    }
+                }
+
+                @media screen and (max-width: 900px) {
+                    height: 100px;
+                    width: 200px;
+                }
+            }
+        }
+
+        .container-home-2 {
+            @include flexCenter;
+            height: 400px;
+
+            @media screen and (max-width: 900px) {
+                height: 200px;
+
+            }
+
+            .container-left {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                width: 400px;
+                padding: 25px;
+
+                @media screen and (max-width: 900px) {
+                    height: 100px;
+                    width: 200px;
+                }
+            }
+
+            .container-right {
+                width: 400px;
+                padding: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                @media screen and (max-width: 900px) {
+                    height: 100px;
+                    width: 200px;
+                }
+            }
+        }
+    }
+
+    .section-home-2 {
+        padding-top: 20px;
+
+
+
+        .container-values {
+            @include flexCenter;
+
+            @media screen and (max-width: 900px) {
+                display: inline;
+            }
+
+            .icon {
+                font-size: 80px;
+                margin: 0px 55px 30px 55px;
+                color: $secondary;
+                justify-content: center;
+
+                @media screen and (max-width: 900px) {
+                    font-size: 40px;
+                    margin: 0px 20px 10px 20px;
+
+                }
+            }
+
+            .container-house,
+            .container-pulse,
+            .container-leaf {
+                width: 200px;
+                height: 300px;
+                padding: 50px 50px 0px 50px;
+
+                @media screen and (max-width: 900px) {
+                    @include flexCenter;
+                    margin: 0 auto;
+                    width: 350px;
+                    height: 100px;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .section-home-3 {
+
+        .title-review {
+            @include flexCenter;
+            flex-direction: column;
+
+            .button-review {
+                @include flexCenter;
+                height: 50px;
+                translate: translateX(50%);
+            }
+        }
+
+        .container-review {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 120px;
+            width: 700px;
+            margin: 20px auto 20px auto;
+            background: $tertiary;
+            border-radius: 10px;
+            padding-top: 10px;
+
+            @media screen and (max-width: 900px) {
+                width: 350px;
+            }
+
+            p {
+                padding-top: 20px;
+                font-style: italic;
+                margin: 0 20px;
+            }
+
+            span {
+                padding: 20px 20px 10px 20px;
+                font-family: $textContent;
+                font-style: italic;
+                color: $dark;
+                font-size: 12px;
+            }
+
+        }
+
+        .link-review {
+            @include flexCenter;
+            padding-bottom: 20px;
+        }
+    }
+
+}

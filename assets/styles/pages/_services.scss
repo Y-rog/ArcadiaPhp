@@ -1,0 +1,52 @@
+.services {
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 865px;
+
+    .add-service {
+        @include flexCenter;
+        height: 30px;
+    }
+
+    .container-services {
+        margin: 0 auto;
+        @include flexCenter;
+        flex-wrap: wrap;
+        padding: 10px;
+
+        .service {
+            display: flex;
+
+            .container-service {
+                height: 300px;
+                width: 200px;
+                padding: 20px;
+                position: relative;
+
+                .img-service {
+                    position: relative;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    z-index: 0;
+                }
+
+                h3 {
+                    background: $tertiary;
+                    text-align: center;
+                    border-radius: 5px;
+                    padding: 10px;
+                }
+
+                p {
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

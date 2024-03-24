@@ -1,0 +1,164 @@
+.habitats {
+    @include flexCenter;
+    margin: 0 auto;
+    text-align: center;
+
+    .container-habitats {
+        position: relative;
+
+        .add-habitat {
+            @include flexCenter;
+            height: 30px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .container-habitat {
+            padding: 10px 0px 10px 00px;
+
+            .img-habitat {
+                @include flexCenter;
+                position: relative;
+                text-align: center;
+                margin: 0 auto;
+
+                img {
+                    z-index: 0;
+                    border-radius: 5px;
+                    height: 400px;
+                    width: 865px;
+
+                    @media screen and (max-width: 900px) {
+                        height: 200px;
+                        width: 375px;
+                    }
+                }
+            }
+
+
+            h3 {
+                position: absolute;
+                background-color: adjust-color($color: transparent, $alpha: 0.4);
+                padding: 0px 5px 2px 5px;
+                color: $white;
+                z-index: 1;
+                border-radius: 5px;
+            }
+
+
+            .button1 {
+                color: $white;
+                border-color: $white;
+                top: 350px;
+
+                @media screen and (max-width: 900px) {
+                    top: 165px;
+                }
+
+            }
+
+            .minimize {
+                position: absolute;
+                display: none;
+                color: $white;
+                width: 20px;
+                height: 20px;
+                font-size: 20px;
+                top: 350px;
+                z-index: 1;
+                cursor: pointer;
+
+                @media screen and (max-width: 900px) {
+                    top: 165px;
+                }
+            }
+
+        }
+
+    }
+}
+
+.description {
+    display: none;
+    width: 865px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 900px) {
+        width: 375px;
+    }
+
+    p {
+        padding: 0 5px 0 5px;
+
+    }
+
+}
+
+.list-animals {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .add-animal {
+        height: 40px;
+        position: relative;
+        width: 100%;
+        @include flexCenter;
+
+        .button2 {
+            left: 50% -5px;
+            translate: translateX(50%);
+        }
+    }
+
+
+
+    .list-title {
+        text-align: center;
+        position: relative;
+        @include flexCenter;
+
+    }
+
+    .list-animals-cards {
+        @include flexCenter;
+        width: 865px;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 auto;
+
+        @media screen and (max-width: 900px) {
+            width: 375px;
+        }
+
+        .card {
+            .img-animal {
+                position: relative;
+            }
+
+            img {
+                border-radius: 5px;
+                width: 175px;
+                height: 130px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .li-page-animal {
+                display: none;
+
+            }
+
+            .icon-open-details {
+                cursor: pointer;
+
+            }
+
+            .icon-reduce-details {
+                display: none;
+                cursor: pointer;
+            }
+        }
+
+    }
+}

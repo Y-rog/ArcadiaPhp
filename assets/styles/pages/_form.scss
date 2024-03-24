@@ -1,0 +1,82 @@
+.main-form {
+    margin: 0 auto;
+
+    h3 {
+        padding: 10px;
+        text-align: center;
+    }
+
+    form {
+        @include flexCenter;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 10px 10px 0px;
+        font-family: $textContent;
+        font-size: 12px;
+
+
+        div {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            width: 340px;
+
+            .invalid-credentials {
+                height: 12px;
+                color: red;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                text-align: left;
+                display: none;
+            }
+
+
+
+            #title {
+                padding: 5px;
+                width: 100%;
+
+            }
+
+            #message {
+                padding: 5px;
+                height: 200px;
+                width: 100%;
+                resize: none;
+            }
+
+            #email {
+                width: 100%;
+                padding: 5px;
+            }
+
+            #password {
+                width: 100%;
+                padding: 5px;
+            }
+        }
+
+        .submit,
+        .button-signin {
+            @include flexCenter;
+            padding-top: 10px;
+        }
+    }
+}
+
+input,
+textarea {
+    border-radius: 5px;
+    border: 1px solid $dark;
+}
+
+
+.valid {
+    outline: solid rgb(140, 205, 140);
+}
+
+.invalid {
+    outline: solid rgb(255, 183, 183);
+}

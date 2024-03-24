@@ -1,0 +1,152 @@
+.button1 {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    background: adjust-color($color: transparent, $alpha: 0.3);
+    border: 1px solid $white;
+    border-radius: 20px;
+    height: 15px;
+    font-family: $textContent;
+    color: $white;
+    font-size: 12px;
+    position: absolute;
+    cursor: pointer;
+
+
+    &:hover {
+        scale: 1.1;
+    }
+}
+
+.button2 {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    background: none;
+    border: 1px solid $secondary;
+    border-radius: 20px;
+    height: 15px;
+    font-family: $textContent;
+    font-size: 12px;
+    color: $secondary;
+    cursor: pointer;
+
+    &:hover {
+        scale: 1.1;
+
+    }
+}
+
+.icon-update {
+    position: absolute;
+    font-size: 20px;
+    color: $tertiary;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover {
+        scale: 1.1;
+
+    }
+}
+
+.icon-delete {
+    position: absolute;
+    font-size: 20px;
+    color: $tertiary;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover {
+        scale: 1.1;
+
+    }
+}
+
+.btn-validate-form {
+    background: rgb(28, 165, 28);
+    border: none;
+    color: $white;
+    padding: 5px 12px 5px 12px;
+    gap: 10px;
+    border-radius: 20px;
+    font-family: $textContent;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: rgb(149, 182, 149);
+
+        &:hover {
+            background: rgb(149, 182, 149);
+        }
+    }
+
+}
+
+.btn-cancel-form {
+    background: rgb(255, 2, 2);
+    border: none;
+    color: $white;
+    padding: 5px 12px 5px 12px;
+    gap: 10px;
+    border-radius: 20px;
+    font-family: $textContent;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+
+}
+
+.icon-validate {
+    color: green;
+    font-size: 30px;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.icon-cancel {
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.fa-star {
+    color: $primary;
+    cursor: pointer;
+    position: absolute;
+    font-size: 30px;
+}
+
+.star-2 {
+    color: $primary;
+    display: none;
+}

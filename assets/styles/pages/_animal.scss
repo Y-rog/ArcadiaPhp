@@ -1,0 +1,38 @@
+.animal {
+    .card {
+        @include flexCenter;
+        position: relative;
+        padding: 20px;
+
+        .img-animal {
+            position: relative;
+
+
+
+            img {
+
+                border-radius: 5px;
+                width: 400px;
+                height: 300px;
+                position: relative;
+                z-index: 1;
+
+                @media screen and (max-width: 900px) {
+                    width: 300px;
+                    height: 250px;
+
+                }
+            }
+        }
+
+
+    }
+
+    .add-report {
+        @include flexCenter;
+        height: 50px;
+        padding-bottom: 20px;
+    }
+
+
+}

@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "cormo";
+    src: url(../fonts/CormorantGaramond-Regular.ttf);
+}
+
+@font-face {
+    font-family: "merri";
+    src: url(../fonts/Merriweather-Regular.ttf);
+}
+
+@font-face {
+    font-family: "mont";
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+$bigTitle: merri, serif;
+$title: cormo, serif;
+$textContent: mont, sans-serif;
+
+$primary: #385B3C;
+$secondary: #609966;
+$tertiary: #F5F6EF;
+$dark: #20241F;
+$white: #FFFFFF;
+
+
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $secondary;
+}
+
+p,
+span {
+    font-family: $textContent;
+    font-size: 12px;
+    color: $dark;
+}
+
+h2,
+h3 {
+    font-family: $title;
+    color: $dark;
+    font-weight: 400;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 123px;
+    box-sizing: border-box;
+}
