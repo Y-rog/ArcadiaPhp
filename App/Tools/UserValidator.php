@@ -4,7 +4,7 @@ namespace App\Tools;
 
 use App\Entity\User;
 
-class UserValidator extends User
+class UserValidator extends Tools
 {
 
     public function validate(): array

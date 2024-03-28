@@ -15,11 +15,11 @@
             <h2>Arcadia</h2>
         </div>
         <ul>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Habitats</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Contact</a></li>
-            <li class="link" id="link-signin"><a href="">Connexion</a>
+            <li><a href="index.php?controller=page&action=home">Accueil</a></li>
+            <li><a href="index.php?controller=habitat&action=list">Habitats</a></li>
+            <li><a href="index.php?controller=service&action=list">Services</a></li>
+            <li><a href="index.php?controller=page&action=contact">Contact</a></li>
+            <li class="link" id="link-signin"><a href="index.php?controller=page&action=signin">Connexion</a>
             </li>
             <li class="link" id="link-signout"><a href="">Déconnexion</a>
             </li>

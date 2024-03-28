@@ -1,26 +1,19 @@
 .main-form {
     margin: 0 auto;
-
-    h3 {
-        padding: 10px;
-        text-align: center;
-    }
+    padding-top: 30px;
 
     form {
         @include flexCenter;
         flex-direction: column;
         text-align: center;
-        padding: 10px 10px 10px 0px;
         font-family: $textContent;
         font-size: 12px;
 
-
-        div {
-            margin-bottom: 20px;
+        .form-group {
+            margin-bottom: 10px;
             display: flex;
             align-items: start;
             flex-direction: column;
-            width: 340px;
 
             .invalid-credentials {
                 height: 12px;
@@ -31,45 +24,26 @@
                 text-align: left;
                 display: none;
             }
-
-
-
-            #title {
-                padding: 5px;
-                width: 100%;
-
-            }
-
-            #message {
-                padding: 5px;
-                height: 200px;
-                width: 100%;
-                resize: none;
-            }
-
-            #email {
-                width: 100%;
-                padding: 5px;
-            }
-
-            #password {
-                width: 100%;
-                padding: 5px;
-            }
         }
 
-        .submit,
-        .button-signin {
-            @include flexCenter;
-            padding-top: 10px;
+        select {
+            display: flex;
+            align-items: start;
+            padding: 5px;
+            border-radius: 5px;
         }
+
     }
 }
 
 input,
 textarea {
     border-radius: 5px;
+    font-size: 12px;
     border: 1px solid $dark;
+    margin: 5px;
+    padding: 5px;
+    width: 100%;
 }
 
 

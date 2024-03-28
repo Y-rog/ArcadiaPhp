@@ -6,7 +6,7 @@ use App\Entity\Habitat;
 use App\Db\Mysql;
 use App\Tools\StringTools;
 
-class HabitatRepository
+class HabitatRepository extends Repository
 {
     public function findOneById(int $id)
     {

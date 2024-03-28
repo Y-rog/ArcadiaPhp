@@ -98,39 +98,7 @@ class HabitatController extends Controller
         }
     }
 
-    protected function add(): void
-    {
-        try {
-            //on vérifie si le formulaire a été soumis
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                //on vérifie si le formulaire est valide
-                if ($this->validateForm()) {
-                    //on crée un nouvel habitat
-                    $habitat = new Habitat();
-                    $habitat->setName($_POST['name']);
-                    $habitat->setDescription($_POST['description']);
-                    $habitat->setImage($_FILES['image']['name']);
-
-                    //on appelle le repository pour ajouter l'habitat
-                    $habitatRepository = new HabitatRepository();
-                    $habitatRepository->add($habitat);
-
-                    //on redirige vers la liste des habitats
-                    header('Location: index.php?action=list');
-                }
-            }
-
-            $this->render('habitat/add', [
-                'pageTitle' => 'Ajouter un habitat',
-            ]);
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage(),
-                'pageTitle' => 'Erreur',
-            ]);
-        }
-    }
-
+    
     protected function edit(): void
     {
         try {

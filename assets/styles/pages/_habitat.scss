@@ -1,10 +1,11 @@
-.habitats {
-    @include flexCenter;
+.habitat {
     margin: 0 auto;
     text-align: center;
+    position: relative;
 
-    .container-habitats {
-        position: relative;
+    .container-habitat {
+        padding: 10px 0px 10px 00px;
+
 
         .add-habitat {
             @include flexCenter;
@@ -13,73 +14,73 @@
             margin-top: 10px;
         }
 
-        .container-habitat {
-            padding: 10px 0px 10px 00px;
+        .img-habitat {
+            @include flexCenter;
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
 
-            .img-habitat {
-                @include flexCenter;
-                position: relative;
-                text-align: center;
-                margin: 0 auto;
-
-                img {
-                    z-index: 0;
-                    border-radius: 5px;
-                    height: 400px;
-                    width: 865px;
-
-                    @media screen and (max-width: 900px) {
-                        height: 200px;
-                        width: 375px;
-                    }
-                }
-            }
-
-
-            h3 {
-                position: absolute;
-                background-color: adjust-color($color: transparent, $alpha: 0.4);
-                padding: 0px 5px 2px 5px;
-                color: $white;
-                z-index: 1;
+            img {
+                z-index: 0;
                 border-radius: 5px;
-            }
-
-
-            .button1 {
-                color: $white;
-                border-color: $white;
-                top: 350px;
+                height: 400px;
+                width: 865px;
 
                 @media screen and (max-width: 900px) {
-                    top: 165px;
+                    height: 200px;
+                    width: 375px;
                 }
+            }
+        }
 
+
+        h3 {
+            position: absolute;
+            background-color: adjust-color($color: transparent, $alpha: 0.4);
+            padding: 0px 5px 2px 5px;
+            color: $white;
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .button1 {
+            position: absolute;
+            color: $white;
+            border-color: $white;
+            top: 350px;
+
+            @media screen and (max-width: 900px) {
+                top: 165px;
             }
 
-            .minimize {
-                position: absolute;
-                display: none;
+            a {
                 color: $white;
-                width: 20px;
-                height: 20px;
-                font-size: 20px;
-                top: 350px;
-                z-index: 1;
-                cursor: pointer;
-
-                @media screen and (max-width: 900px) {
-                    top: 165px;
-                }
             }
 
         }
 
+        .minimize {
+            position: absolute;
+            display: none;
+            color: $white;
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+            top: 350px;
+            z-index: 1;
+            cursor: pointer;
+
+            @media screen and (max-width: 900px) {
+                top: 165px;
+            }
+        }
+
     }
+
 }
 
+
 .description {
-    display: none;
     width: 865px;
     margin: 0 auto;
 

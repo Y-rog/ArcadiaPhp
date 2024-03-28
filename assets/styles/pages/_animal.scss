@@ -1,25 +1,26 @@
-.animal {
-    .card {
-        @include flexCenter;
-        position: relative;
-        padding: 20px;
+.container-animals {
+    @include flexCenter;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+
+    .container-animal {
+        padding: 10px;
 
         .img-animal {
             position: relative;
 
-
-
             img {
 
                 border-radius: 5px;
-                width: 400px;
-                height: 300px;
+                width: 200px;
+                height: 150px;
                 position: relative;
                 z-index: 1;
 
                 @media screen and (max-width: 900px) {
-                    width: 300px;
-                    height: 250px;
+                    width: 150px;
+                    height: 100px;
 
                 }
             }
@@ -27,12 +28,82 @@
 
 
     }
+}
 
-    .add-report {
-        @include flexCenter;
-        height: 50px;
-        padding-bottom: 20px;
+.back {
+    padding: 20px;
+    color: $secondary;
+    cursor: pointer;
+}
+
+
+
+
+.add-report {
+    @include flexCenter;
+    height: 50px;
+    padding-bottom: 20px;
+}
+
+.container-animal-show {
+    @include flexCenter;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+
+
+    .img-animal {
+        position: relative;
+
+
+        img {
+            border-radius: 5px;
+            width: 400px;
+            height: 300px;
+            z-index: 0;
+
+            @media screen and (max-width: 900px) {
+                width: 280px;
+                height: 200px;
+
+            }
+        }
     }
 
+    .info-animal {
+        border: 1px solid $primary;
+        width: 400px;
+        border-radius: 5px;
+        @include flexCenter;
 
+        @media screen and (max-width: 900px) {
+            width: 280px;
+
+        }
+
+        th {
+            color: $primary;
+            text-align: right;
+        }
+    }
+
+}
+
+.confirm-delete {
+    text-align: center;
+    padding-top: 20px;
+
+    .form-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 20px;
+
+        button {
+            margin: 0 40px;
+
+        }
+
+    }
 }

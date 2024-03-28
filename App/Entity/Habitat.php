@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Habitat
+class Habitat extends Entity
 {
     protected ?int $id = null;
     protected string $name = '';
@@ -87,5 +87,10 @@ class Habitat
         $this->image = $image;
 
         return $this;
+    }
+
+    public function getImagePath()
+    {
+        return _IMAGE_HABITAT_ . $this->image;
     }
 }

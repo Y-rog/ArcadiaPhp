@@ -4,7 +4,7 @@ namespace App\Tools;
 
 use App\Entity\User;
 
-class Security extends User
+class Security extends Tools    
 {
     public function verifyPassword(string $password): bool
     {

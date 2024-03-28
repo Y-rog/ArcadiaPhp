@@ -1,0 +1,5 @@
+RewrieEngine On
+
+RewriteRule ^home/$ index.php?controller=page&action=home
+RewriteRule ^habitat/$ index.php?controller=habitat&action=list
+

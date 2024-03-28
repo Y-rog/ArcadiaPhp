@@ -1,4 +1,0 @@
-RewrieEngine On
-
-RewrieRule ^home/$ index.php?controller=page&action=home
-RewrieRule ^contact/$ index.php?controller=page&action=contact

@@ -19,7 +19,10 @@ class Controller
                     case 'habitat':
                         $pageController = new HabitatController();
                         $pageController->route();
-
+                        break;
+                    case 'animal':
+                        $pageController = new AnimalController();
+                        $pageController->route();
                         break;
                         //Charger  Page Service
                     case 'service':
@@ -47,6 +50,7 @@ class Controller
     protected function render(string $path, array $params = []): void
     {
         $filePath = _ROOTPATH_ . '/templates/' . $path . '.php';
+
 
         try {
             if (!file_exists($filePath)) {

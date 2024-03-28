@@ -2,7 +2,7 @@
 
 namespace App\Tools;
 
-class StringTools
+class StringTools extends Tools
 {
 
     public static function toCamelCase($value, $pascalCase = false)

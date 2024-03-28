@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Animal
+class Animal extends Entity
 {
     protected ?int $id = null;
     protected string $firstname = '';
@@ -13,7 +13,7 @@ class Animal
     /**
      * Get the value of id
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -23,7 +23,7 @@ class Animal
      *
      * @return  self
      */
-    public function setId($id)
+    public function setId($id): self
     {
         $this->id = $id;
 
@@ -33,7 +33,7 @@ class Animal
     /**
      * Get the value of firstname
      */
-    public function getFirstname()
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
@@ -43,7 +43,7 @@ class Animal
      *
      * @return  self
      */
-    public function setFirstname($firstname)
+    public function setFirstname($firstname): self
     {
         $this->firstname = $firstname;
 
@@ -52,7 +52,7 @@ class Animal
 
     /**
      * Get the value of race
-     */
+     */ 
     public function getRace()
     {
         return $this->race;
@@ -62,7 +62,7 @@ class Animal
      * Set the value of race
      *
      * @return  self
-     */
+     */ 
     public function setRace($race)
     {
         $this->race = $race;
@@ -73,7 +73,7 @@ class Animal
     /**
      * Get the value of image
      */
-    public function getImage()
+    public function getImage(): ?string
     {
         return $this->image;
     }
@@ -83,7 +83,7 @@ class Animal
      *
      * @return  self
      */
-    public function setImage($image)
+    public function setImage($image): self
     {
         $this->image = $image;
 
@@ -93,7 +93,7 @@ class Animal
     /**
      * Get the value of habitatId
      */
-    public function getHabitatId()
+    public function getHabitatId(): ?int
     {
         return $this->habitatId;
     }
@@ -103,10 +103,17 @@ class Animal
      *
      * @return  self
      */
-    public function setHabitatId($habitatId)
+    public function setHabitatId($habitatId): self
     {
         $this->habitatId = $habitatId;
 
         return $this;
     }
+
+    public function getImagePath()
+    {
+        return _IMAGE_ANIMAL_ . $this->getImage();
+    }
+
+    
 }
