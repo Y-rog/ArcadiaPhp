@@ -6,7 +6,7 @@ use App\Entity\Animal;
 use App\Entity\Habitat;
 use App\Repository\AnimalRepository;
 use App\Repository\HabitatRepository;
-use App\Tools\AnimalValidator;
+use App\Security\AnimalValidator;
 
 
 
@@ -45,7 +45,8 @@ class AnimalController extends Controller
         }
     }
 
-    protected function show() {
+    protected function show()
+    {
         try {
             $animalRepository = new AnimalRepository();
             $animal = $animalRepository->findOneById($_GET['id']);
@@ -66,7 +67,6 @@ class AnimalController extends Controller
                 'pageTitle' => 'Erreur',
             ]);
         }
-
     }
 
     protected function add(): void
@@ -75,8 +75,8 @@ class AnimalController extends Controller
             $errors = [];
             $animal = new Animal();
 
-            if (isset ($_POST['saveAnimal'])) {
-            
+            if (isset($_POST['saveAnimal'])) {
+
                 $animal->hydrate($_POST);
 
                 $errors = (new AnimalValidator())->animalValidate($animal);
@@ -89,78 +89,12 @@ class AnimalController extends Controller
                 }
             }
 
-            $this -> render('animal/add', [
-            'animal' => $animal,
-            'errors' => $errors,
-            'pageTitle' => 'Ajouter un animal',
-            'habitats' => (new HabitatRepository())->findAll(),
-            ]);
-
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-            'error' => $e->getMessage(),
-            'pageTitle' => 'Erreur',
-            ]);
-        }
-    }
-    
-    protected function edit(): void
-    {
-        try {
-            $errors = [];
-            $animalRepository = new AnimalRepository();
-            $animal = $animalRepository->findOneById($_GET['id']);
-
-            if (isset ($_POST['saveAnimal'])) {
-            
-                $animal->hydrate($_POST);
-
-                $errors = (new AnimalValidator())->animalValidate($animal);
-
-                if (empty($errors)) {
-                    $animalRepository->insert($animal);
-                    header('Location: index.php?controller=animal&action=edit&id=' . $animal->getId());
-                }
-            }
-
-            $this -> render('animal/edit', [
-            'animal' => $animal,
-            'errors' => $errors,
-            'pageTitle' => 'Modifier un animal',
-            'habitats' => (new HabitatRepository())->findAll(),
-            ]);
-
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-            'error' => $e->getMessage(),
-            'pageTitle' => 'Erreur',
-            ]);
-        }
-    
-    }
-
-    protected function delete(): void
-    {
-        try {
-            $animalRepository = new AnimalRepository();
-            $animal = $animalRepository->findOneById($_GET['id']);
-
-            if (isset($_POST['delete'])) {
-                $animalRepository->delete($animal);
-                header('Location: index.php?controller=animal&action=add');
-            }
-
-            $this->render('animal/delete', [
+            $this->render('animal/add', [
                 'animal' => $animal,
-                'pageTitle' => 'Supprimer un animal',
-                'id' => $animal->getId(),
-                'race' => $animal->getRace(),
-                'firstname' => ucfirst($animal->getFirstname()),
-                'image' => $animal->getImagePath(),
-                'pageTitle' => 'Supression de l\'animal',
-                'habitatName' => (new HabitatRepository())->findOneById($animal->getHabitatId())->getName(),
+                'errors' => $errors,
+                'pageTitle' => 'Ajouter un animal',
+                'habitats' => (new HabitatRepository())->findAll(),
             ]);
-
         } catch (\Exception $e) {
             $this->render('errors/default', [
                 'error' => $e->getMessage(),
@@ -168,10 +102,68 @@ class AnimalController extends Controller
             ]);
         }
     }
-       
+
+    protected function edit(): void
+    {
+        try {
+            $errors = [];
+            $animalRepository = new AnimalRepository();
+            $animal = $animalRepository->findOneById($_GET['id']);
+
+            if (isset($_POST['saveAnimal'])) {
+
+                $animal->hydrate($_POST);
+
+                $errors = (new AnimalValidator())->animalValidate($animal);
+
+                if (empty($errors)) {
+                    $animalRepository->insert($animal);
+                    header('Location: index.php?controller=habitat&action=edit&id=' . $animal->getId());
+                }
+            }
+
+            $this->render('animal/edit', [
+                'animal' => $animal,
+                'errors' => $errors,
+                'pageTitle' => 'Modifier un animal',
+                'habitats' => (new HabitatRepository())->findAll(),
+            ]);
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage(),
+                'pageTitle' => 'Erreur',
+            ]);
+        }
+    }
+
+    protected function delete(): void
+    {
+        try {
+            $errors = [];
+            $animalRepository = new AnimalRepository();
+            $animal = $animalRepository->findOneById($_GET['id']);
+
+            if (isset($_POST['delete'])) {
+                $animalRepository->delete($animal->getId());
+                header('Location: index.php?controller=habitat&action=list');
+            }
+
+            $this->render('animal/delete', [
+                'animal' => $animal,
+                'pageTitle' => 'Supprimer un animal',
+                'pathShow' => 'index.php?controller=animal&action=show&id=' . $animal->getId(),
+                'id' => $animal->getId(),
+                'race' => $animal->getRace(),
+                'firstname' => ucfirst($animal->getFirstname()),
+                'image' => $animal->getImagePath(),
+                'pageTitle' => 'Supression de l\'animal',
+                'habitatName' => (new HabitatRepository())->findOneById($animal->getHabitatId())->getName(),
+            ]);
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage(),
+                'pageTitle' => 'Erreur',
+            ]);
+        }
+    }
 }
-
-
-
-            
-

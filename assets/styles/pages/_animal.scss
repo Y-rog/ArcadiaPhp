@@ -7,6 +7,24 @@
     .container-animal {
         padding: 10px;
 
+        .info-animal {
+            border: 1px solid $primary;
+            width: 200px;
+            border-radius: 5px;
+            @include flexCenter;
+            text-align: center;
+
+            @media screen and (max-width: 900px) {
+                width: 150px;
+
+            }
+
+            th {
+                color: $primary;
+                text-align: right;
+            }
+        }
+
         .img-animal {
             position: relative;
 
@@ -25,6 +43,7 @@
                 }
             }
         }
+
 
 
     }

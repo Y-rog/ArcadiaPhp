@@ -10,6 +10,15 @@ class Controller
             //on verrifie si le controller est défini dans l'url
             if (isset($_GET['controller'])) {
                 switch ($_GET['controller']) {
+                    case 'user':
+                        $userController = new UserController();
+                        $userController->route();
+                        break;
+                        //Charger Controller Auth
+                    case 'auth':
+                        $authController = new AuthController();
+                        $authController->route();
+                        break;
                         //Charger Controller Page Home
                     case 'page':
                         $pageController = new PageController();
@@ -26,7 +35,8 @@ class Controller
                         break;
                         //Charger  Page Service
                     case 'service':
-
+                        $pageController = new ServiceController();
+                        $pageController->route();
                         break;
                         //Par défaut charger erreur
                     default:

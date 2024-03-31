@@ -16,12 +16,25 @@
     <div class="container-animals">
         <?php foreach ($animals as $animal) : ?>
             <div class="container-animal">
-                <div class="img-animal"> <img src=<?= $animal->getImagePath() ?> alt="">
-                </div>
-                <div class="li-page-habitat">
-                    <li>Prénom: <?= ucwords($animal->getFirstname()) ?></li>
-                    <li>Race: <?= $animal->getRace() ?></li>
-                    <li>Habitat: <?= $habitat->getName() ?></li>
+                <a href=<?= $animalPath . $animal->getId() ?>>
+                    <div class=" img-animal"> <img src=<?= $animal->getImagePath() ?> alt="">
+                    </div>
+                </a>
+                <div class="info-animal">
+                    <table>
+                        <tr>
+                            <th>Prénom:</th>
+                            <td> <?= ucwords($animal->getFirstname()) ?></td>
+                        </tr>
+                        <tr>
+                            <th>Race:</th>
+                            <td><?= $animal->getRace() ?></td>
+                        </tr>
+                        <tr>
+                            <th>Habitat:</th>
+                            <td><?= $habitat->getName() ?></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         <?php endforeach; ?>

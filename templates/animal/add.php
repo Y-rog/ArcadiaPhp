@@ -2,20 +2,19 @@
 /**
  * @var \APP\Entity\Animal $animal */ ?>
 
-
 <div class="main-form">
     <form method="POST">
         <div class="form-group">
-            <label for="firstname">Prénom de l'animal</label>
-            <input type="text" class='form-control' id="firstname" name="firstname" value="" required>
-        </div> 
+            <label for="first_name">Prénom de l'animal</label>
+            <input type="text" class='form-control' id="first_name" name="first_name" value="" required>
+        </div>
         <div class="form-group">
             <label for="race">Race de l'animal</label>
-            <input type="text" class='form-control'  id="race" name="race" value=""  required>
+            <input type="text" class='form-control' id="race" name="race" value="" required>
         </div>
         <div class="form-group">
             <label for="image">Image de l'animal</label>
-            <input type="file" id="image" name="image"  value="" required>
+            <input type="file" id="image" name="image" value="" required>
         </div>
         <div class="form-group">
             <label for="habitat_id">Habitat de l'animal</label>

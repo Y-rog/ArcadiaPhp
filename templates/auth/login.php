@@ -1,22 +1,26 @@
-<?php require_once _ROOTPATH_ . '/templates/header.php'; ?>
+<?php require_once _ROOTPATH_ . '/templates/header.php';
+var_dump($_SESSION) ?>
 
-<main class="main-form">
-    <form id="signin" action="" method="GET">
-        <div>
+<?php foreach ($errors as $error) : ?>
+    <div class="error"><?= $error ?></div>
+<?php endforeach; ?>
+
+<main class=main-form>
+    <form method="POST">
+        <div class="form-group">
             <label for="email">E-mail :</label>
             <input type="email" id="email" name="email" required>
             <div class="invalid-credentials">Le mail et/ou le mot de passe sont incorrects.</div>
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <div class="button-signin">
-            <button type="button" class="btn-validate-form" id="btnSignin">Connexion</button>
+        <div class="button-login">
+            <button type="submit" name="loginUser" class="btn-validate-form" id="loginUser">Connexion</button>
         </div>
     </form>
 </main>
 
-<script src="../assets/js/pages/signin.js'"></script>
 
 <?php require_once _ROOTPATH_ . '/templates/header.php'; ?>

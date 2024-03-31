@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Tools;
+namespace App\Security;
 
 use App\Entity\User;
 
-class UserValidator extends Tools
+class UserValidator extends Security
 {
 
-    public function validate(): array
+    public function validate(User $user): array
     {
         $errors = [];
-        if (empty($this->getFirstName())) {
+        if (empty($user->getFirstName())) {
             $errors['first_name'] = 'Le champ prénom ne doit pas être vide';
         }
-        if (empty($this->getLastName())) {
+        if (empty($user->getLastName())) {
             $errors['last_name'] = 'Le champ nom ne doit pas être vide';
         }
-        if (empty($this->getEmail())) {
+        if (empty($user->getEmail())) {
             $errors['email'] = 'Le champ email ne doit pas être vide';
-        } else if (!filter_var($this->getEmail(), FILTER_VALIDATE_EMAIL)) {
+        } else if (!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = 'L\'email n\'est pas valide';
         }
-        if (empty($this->getPassword())) {
+        if (empty($user->getPassword())) {
             $errors['password'] = 'Le champ mot de passe ne doit pas être vide';
         }
         return $errors;

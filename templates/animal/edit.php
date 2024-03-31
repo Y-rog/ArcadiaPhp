@@ -6,16 +6,16 @@
 <div class="main-form">
     <form method="POST">
         <div class="form-group">
-            <label for="firstname">Prénom de l'animal</label>
-            <input type="text" class='form-control' id="firstname" name="firstname" value="<?= $animal->getFirstname() ?>" required>
-        </div> 
+            <label for="first_name">Prénom de l'animal</label>
+            <input type="text" class='form-control' id="first_name" name="first_name" value="<?= $animal->getFirstname() ?>" required>
+        </div>
         <div class="form-group">
             <label for="race">Race de l'animal</label>
-            <input type="text" class='form-control'  id="race" name="race" value="<?= $animal->getRace() ?>"  required>
+            <input type="text" class='form-control' id="race" name="race" value="<?= $animal->getRace() ?>" required>
         </div>
         <div class="form-group">
             <label for="image">Image</label>
-            <input type="file" class='form-control'  id="image" name="image" value="<?= $animal->getImage() ?>" required>
+            <input type="file" class='form-control' id="image" name="image" value="<?= $animal->getImage() ?>" required>
         </div>
         <div class="form-group">
             <label for="habitat_id">Habitat de l'animal</label>
@@ -35,7 +35,7 @@
 <div class="back">
     <i class="fa-solid fa-angles-left"></i><a href="index.php?controller=animal&action=add">Retour</a>
 </div>
-<?php require_once _ROOTPATH_ . '/templates/footer.php'; ?>          
+<?php require_once _ROOTPATH_ . '/templates/footer.php'; ?>
 
 
 <?php require_once _ROOTPATH_ . '/templates/footer.php'; ?>

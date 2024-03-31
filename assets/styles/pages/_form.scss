@@ -28,9 +28,17 @@
 
         select {
             display: flex;
-            align-items: start;
-            padding: 5px;
             border-radius: 5px;
+            margin: 5px;
+            padding: 5px;
+            width: 310px;
+            font-size: 12px;
+        }
+
+        .form-btn {
+            display: flex;
+            position: relative;
+            margin: 0 auto;
         }
 
     }
@@ -43,7 +51,8 @@ textarea {
     border: 1px solid $dark;
     margin: 5px;
     padding: 5px;
-    width: 100%;
+    width: 300px;
+
 }
 
 

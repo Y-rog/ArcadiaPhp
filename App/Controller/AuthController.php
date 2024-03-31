@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Repository\UserRepository;
-use App\Tools\Security;
+use App\Entity\User;
+use App\Security\UserValidator;
+use App\Security\Security;
+
 
 
 class AuthController extends Controller
@@ -28,17 +31,15 @@ class AuthController extends Controller
             }
         } catch (\Exception $e) {
             $this->render('errors/default', [
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
+                'pageTitle' => 'Erreur'
             ]);
         }
     }
 
-
     protected function login()
     {
         $errors = [];
-
-
 
         if (isset($_POST['loginUser'])) {
 
@@ -46,9 +47,10 @@ class AuthController extends Controller
 
             $user = $userRepository->findOneByEmail($_POST['email']);
 
-            if ($user && $user->verifyPassword($_POST['password'])) {
+            if ($user && password_verify($_POST['password'], $user->getPassword())) {
                 // Regénère l'id session pour éviter la fixation de session
                 session_regenerate_id(true);
+                // Stocke les données de l'utilisateur dans la session
                 $_SESSION['user'] = [
                     'id' => $user->getId(),
                     'email' => $user->getEmail(),
@@ -64,9 +66,9 @@ class AuthController extends Controller
 
         $this->render('auth/login', [
             'errors' => $errors,
+            'pageTitle' => 'Connexion'
         ]);
     }
-
 
     protected function logout()
     {

@@ -795,6 +795,30 @@ footer a i {
 .container-animals .container-animal {
   padding: 10px;
 }
+.container-animals .container-animal .info-animal {
+  border: 1px solid #385B3C;
+  width: 200px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+@media screen and (max-width: 900px) {
+  .container-animals .container-animal .info-animal {
+    width: 150px;
+  }
+}
+.container-animals .container-animal .info-animal th {
+  color: #385B3C;
+  text-align: right;
+}
 .container-animals .container-animal .img-animal {
   position: relative;
 }
@@ -1021,11 +1045,18 @@ footer a i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  padding: 5px;
   border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  width: 310px;
+  font-size: 12px;
+}
+.main-form form .form-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 0 auto;
 }
 
 input,
@@ -1035,7 +1066,7 @@ textarea {
   border: 1px solid #20241F;
   margin: 5px;
   padding: 5px;
-  width: 100%;
+  width: 300px;
 }
 
 .valid {

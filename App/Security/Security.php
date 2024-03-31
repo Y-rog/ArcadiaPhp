@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Tools;
+namespace App\Security;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 
-class Security extends Tools    
+
+class Security
 {
     public function verifyPassword(string $password): bool
     {
-        if (password_verify($password, $this->password)) {
+        if (password_verify($password, $_SESSION['user']['password'])) {
             return true;
         } else {
             return false;

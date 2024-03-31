@@ -69,24 +69,23 @@ class AnimalRepository extends Repository
         $pdo = $mysql->getPDO();
 
         if ($animal->getId() === null) {
-            $query = $pdo->prepare('INSERT INTO animal (firstname, race, image, habitat_id) VALUES (:firstname, :race, :image, :habitat_id)');
-            $query->bindValue(':firstname', $animal->getFirstname(), \PDO::PARAM_STR);
+            $query = $pdo->prepare('INSERT INTO animal (first_name, race, image, habitat_id) VALUES (:first_name, :race, :image, :habitat_id)');
+            $query->bindValue(':first_name', $animal->getFirstname(), \PDO::PARAM_STR);
             $query->bindValue(':race', $animal->getRace(), \PDO::PARAM_STR);
             $query->bindValue(':image', $animal->getImage(), \PDO::PARAM_STR);
             $query->bindValue(':habitat_id', $animal->getHabitatId(), \PDO::PARAM_INT);
             $query->execute();
             return $pdo->lastInsertId();
         } else {
-            $query = $pdo->prepare('UPDATE animal SET firstname = :firstname, race=:race, image=:image, habitat_id=:habitat_id WHERE id = :id');
+            $query = $pdo->prepare('UPDATE animal SET first_name = :first_name, race=:race, image=:image, habitat_id=:habitat_id WHERE id = :id');
             $query->bindValue(':id', $animal->getId(), \PDO::PARAM_INT);
-            $query->bindValue(':firstname', $animal->getFirstname(), \PDO::PARAM_STR);
+            $query->bindValue(':first_name', $animal->getFirstname(), \PDO::PARAM_STR);
             $query->bindValue(':race', $animal->getRace(), \PDO::PARAM_STR);
             $query->bindValue(':image', $animal->getImage(), \PDO::PARAM_STR);
             $query->bindValue(':habitat_id', $animal->getHabitatId(), \PDO::PARAM_INT);
             $query->execute();
             return $animal->getId();
         }
-                
     }
 
     public function delete(int $id)
@@ -94,10 +93,8 @@ class AnimalRepository extends Repository
         $mysql = Mysql::getInstance();
         $pdo = $mysql->getPDO();
 
-        $query = $pdo->prepare('DROP FROM animal WHERE id = :id');
+        $query = $pdo->prepare('DELETE FROM animal WHERE id = :id');
         $query->bindValue(':id', $id, \PDO::PARAM_INT);
         $query->execute();
     }
-
 }
-

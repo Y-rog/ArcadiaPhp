@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tools;
+namespace App\Security;
 
 use App\Entity\Animal;
-use App\Entity\Habitat;
 
-class AnimalValidator extends Tools
+
+class AnimalValidator extends Security
 {
 
     public function animalValidate(Animal $animal): array

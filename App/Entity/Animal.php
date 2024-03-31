@@ -5,7 +5,7 @@ namespace App\Entity;
 class Animal extends Entity
 {
     protected ?int $id = null;
-    protected string $firstname = '';
+    protected string $first_name = '';
     protected string $race = '';
     protected string $image = '';
     protected string $habitatId = '';
@@ -35,7 +35,7 @@ class Animal extends Entity
      */
     public function getFirstname(): ?string
     {
-        return $this->firstname;
+        return $this->first_name;
     }
 
     /**
@@ -43,16 +43,16 @@ class Animal extends Entity
      *
      * @return  self
      */
-    public function setFirstname($firstname): self
+    public function setFirstname($first_name): self
     {
-        $this->firstname = $firstname;
+        $this->first_name = $first_name;
 
         return $this;
     }
 
     /**
      * Get the value of race
-     */ 
+     */
     public function getRace()
     {
         return $this->race;
@@ -62,7 +62,7 @@ class Animal extends Entity
      * Set the value of race
      *
      * @return  self
-     */ 
+     */
     public function setRace($race)
     {
         $this->race = $race;
@@ -114,6 +114,4 @@ class Animal extends Entity
     {
         return _IMAGE_ANIMAL_ . $this->getImage();
     }
-
-    
 }

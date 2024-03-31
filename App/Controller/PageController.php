@@ -18,10 +18,6 @@ class PageController extends Controller
                         // on appelle la méthode contact
                         $this->contact();
                         break;
-                    case 'signin':
-                        // on appelle la méthode connexion
-                        $this->signin();
-                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : " . $_GET['action']);
                         break;
@@ -43,18 +39,18 @@ class PageController extends Controller
             'title' => 'Accueil',
             'PageTitle' => 'Bienevenue au zoo',
         ];*/
-
+        var_dump($_SESSION);
         $this->render('page/home', [
             'title' => 'Accueil',
-            'pageTitle' => 'Bienevenue au zoo',
+            'pageTitle' => 'Bienvenue au zoo',
         ]);
     }
 
     protected function contact(): void
     {
         $this->render('page/contact', [
-            'title' => 'Accueil',
-            'pageTitle' => 'Bienevenue au zoo',
+            'title' => 'Contact',
+            'pageTitle' => 'Contact',
         ]);
     }
 }

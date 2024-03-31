@@ -1,3 +1,9 @@
+<?php
+
+use App\Security\Security;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,17 +25,24 @@
             <li><a href="index.php?controller=habitat&action=list">Habitats</a></li>
             <li><a href="index.php?controller=service&action=list">Services</a></li>
             <li><a href="index.php?controller=page&action=contact">Contact</a></li>
-            <li class="link" id="link-signin"><a href="index.php?controller=page&action=signin">Connexion</a>
+            <li class="link" id="link-signin"><a href="index.php?controller=auth&action=login">Connexion</a>
             </li>
             <li class="link" id="link-signout"><a href="">Déconnexion</a>
             </li>
         </ul>
         <div id="icons"></div>
         <ul>
-            <div class="button" id="button-signin"><button class="button1">Connexion</button>
-            </div>
-            <div class="button" id="button-signout"><button class="button1">Déconnexion</button>
-            </div>
+            <?php if (Security::isLogged()) : ?>
+                <a href="index.php?controller=auth&action=logout">
+                    <div class="button"><button class="button1 ">Déconnexion</button>
+                    </div>
+                </a>
+            <?php else : ?>
+                <a href="index.php?controller=auth&action=login">
+                    <div class="button"><button class="button1">Connexion</button>
+                    </div>
+                </a>
+            <?php endif; ?>
         </ul>
 
     </nav>

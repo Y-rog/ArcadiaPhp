@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\AnimalRepository;
 use App\Repository\HabitatRepository;
-use App\Entity\Habitat;
 
 class HabitatController extends Controller
 {
@@ -67,6 +66,7 @@ class HabitatController extends Controller
                     'pageTitle' => 'Habitat ' . $habitat->getName(),
                     'habitat' => $habitat,
                     'animals' => $animals,
+                    'animalPath' => 'index.php?controller=animal&action=show&id=',
                 ]);
             } else {
                 throw new \Exception("L'id est manquant en paramètre d'url");
@@ -82,6 +82,7 @@ class HabitatController extends Controller
     protected function list(): void
     {
         try {
+
             //Charger la liste des habitats par un appel au repository
             $habitatRepository = new HabitatRepository();
             $habitats = $habitatRepository->findAll();
@@ -98,7 +99,7 @@ class HabitatController extends Controller
         }
     }
 
-    
+
     protected function edit(): void
     {
         try {

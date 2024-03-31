@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+
+
 class User extends Entity
 {
     protected ?int $id = null;
@@ -71,17 +73,12 @@ class User extends Entity
         return $this;
     }
 
-    /**
-     * Get the value of role
-     */
+
     public function getRole(): ?string
     {
         return $this->role;
     }
 
-    /**
-     * Set the value of role
-     */
     public function setRole(?string $role): self
     {
         $this->role = $role;
