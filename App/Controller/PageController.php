@@ -39,7 +39,6 @@ class PageController extends Controller
             'title' => 'Accueil',
             'PageTitle' => 'Bienevenue au zoo',
         ];*/
-        var_dump($_SESSION);
         $this->render('page/home', [
             'title' => 'Accueil',
             'pageTitle' => 'Bienvenue au zoo',

@@ -1,5 +1,4 @@
-<?php require_once _ROOTPATH_ . '/templates/header.php';
-var_dump($_SESSION) ?>
+<?php require_once _ROOTPATH_ . '/templates/header.php'; ?>
 
 <?php foreach ($errors as $error) : ?>
     <div class="error"><?= $error ?></div>
