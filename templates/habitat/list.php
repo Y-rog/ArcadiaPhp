@@ -1,15 +1,13 @@
 <?php require_once _ROOTPATH_ . '/templates/header.php'; ?>
-<main class="habitat">
+<main class="container">
     <?php foreach ($habitats as $habitat) : ?>
-        <div class="container-habitat">
-            <div class="img-habitat"><img src='<?= $habitat->getImagePath() ?>' alt="<?= $habitat->getName() ?>">
-                <div class="icon-delete" data-show="admin"><i class="fa-solid fa-trash-can"></i></div>
-                <div class="icon-update" data-show="admin"><i class="fa-solid fa-pencil"></i></div>
-                <h3><?= ucwords($habitat->getName()) ?></h3>
-                <button class="button1"> <a href="index.php?controller=habitat&action=show&id=<?= $habitat->getId() ?>">Découvrir</a></button>
-
+        <div class="pb-3">
+            <div class="container habitat">
+                <a href="index.php?controller=habitat&action=show&id=<?= $habitat->getId() ?>">
+                    <img class="card-img-top s" width="100%" height="auto" aria-hidden="true" src='<?= $habitat->getImagePath() ?>' alt="<?= $habitat->getName() ?>">
+                    <h2><?= ucwords($habitat->getName()) ?></h2>
+                </a>
             </div>
-        </div>
         </div>
     <?php endforeach; ?>
 </main>

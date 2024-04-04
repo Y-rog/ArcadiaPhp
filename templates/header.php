@@ -11,44 +11,29 @@ use App\Security\Security;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../assets/styles/index.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
 
 </head>
-<header>
-    <nav id="nav">
-        <div class="container-title-nav">
-            <h2>Arcadia</h2>
-        </div>
-        <ul>
-            <li><a href="index.php?controller=page&action=home">Accueil</a></li>
-            <li><a href="index.php?controller=habitat&action=list">Habitats</a></li>
-            <li><a href="index.php?controller=service&action=list">Services</a></li>
-            <li><a href="index.php?controller=page&action=contact">Contact</a></li>
-            <li class="link" id="link-signin"><a href="index.php?controller=auth&action=login">Connexion</a>
-            </li>
-            <li class="link" id="link-signout"><a href="">Déconnexion</a>
-            </li>
-        </ul>
-        <div id="icons"></div>
-        <ul>
-            <?php if (Security::isLogged()) : ?>
-                <a href="index.php?controller=auth&action=logout">
-                    <div class="button"><button class="button1 ">Déconnexion</button>
-                    </div>
-                </a>
-            <?php else : ?>
-                <a href="index.php?controller=auth&action=login">
-                    <div class="button"><button class="button1">Connexion</button>
-                    </div>
-                </a>
-            <?php endif; ?>
-        </ul>
 
-    </nav>
-    <aside>
-        <h2>
-            <?= $pageTitle ?>
-        </h2>
-    </aside>
-</header>
+<body>
+
+    <header class="pb-2">
+        <nav class="navbar navbar-expand-lg  border-bottom">
+            <div class="container-fluid">
+                <a href="/" class="d-flex col-4 ">
+                    <img width="200" src="../assets/img/logo-svg.svg" alt="logo Arcadia" class="img-fluid">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav col-lg-6 justify-content-lg-center">
+                        <a class="nav-link" href=" index.php?controller=page&action=home">Accueil</a>
+                        <a class="nav-link" href=" index.php?controller=habitat&action=list">Habitats</a>
+                        <a class="nav-link" href=" index.php?controller=service&action=list">Services</a>
+                        <a class="nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>

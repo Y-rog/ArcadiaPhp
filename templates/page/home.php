@@ -1,99 +1,107 @@
-<?php require_once _ROOTPATH_ . '/templates/header.php'; ?>
+<?php require_once _ROOTPATH_ . '/templates/header.php' ?>
+<main class="container">
+    <div class="home-big-title text-center pb-3">
+        <img class="rounded " src="../../assets/img/home-elephant.jpg" alt="image elephant" aria-hidden="true">
+        <h1 class="bg-white rounded">Bienvenue à Arcadia</h1>
+    </div>
+    <div class=" container-fluid horaries text-center rounded pt-3 pb-3">
+        <span> Ouvert du Mardi au Dimanche de 9h à 18h</span>
+    </div>
 
-<main class="accueil">
-    <section class="section-home-bigTitle">
-        <h1>Arcadia</h1>
-        <p>Vivez une experience inoubliable!</p>
-    </section>
-    <section class="section-home-container">
-        <section class="section-home-1">
-            <div class="container-title">
-                <h2>Nous et nos animaux</h2>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Vivez une experience inoubliable! <span class="text-body-secondary">Au coeur d'une naturé préservée.</span></h2>
+            <p class="lead">Situé en Bretagne proche de la forêt de Brocéliande, nous sommes heureux de vous accueillir
+                depuis 1960.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" src="../../assets/img/girafe-zebre-home.jpg" widht="500" height="500" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette reverse">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Partez à l'aventure! <span class="text-body-secondary">Découvrez plus de 50 espèces d’animaux.</span></h2>
+            <p class="lead">Notre zoo est divisé en plusieurs habitats: la savane, la jungle et le marais. </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" src="../../assets/img/tiger-home.png" widht="500" height="500" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Partez serain!<span class="text-body-secondary"> Nous avons pensé à tout.</span></h2>
+            <p class="lead">Le parc vous propose plusieurs services pour agrémenter votre visite.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" src="../../assets/img/visite-guide.jpg" widht="500" height="500" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class=" container-fluid value text-center rounded pt-3 pb-3">
+        <span> Le respect de nos valeurs et de nos animaux est très important! </span>
+    </div>
+    <div class="row text-center pt-5">
+        <div class="col-lg-4">
+            <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="../../assets/img/panda.jpg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <h2 class="fw-normal">Bien être</h2>
+            <p>Soucieux du bien être de nos animaux, nous avons reproduits leurs habitats naturels.</p>
+        </div>
+        <div class="col-lg-4">
+            <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="../../assets/img/veterinary.jpg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <h2 class="fw-normal">Santé</h2>
+            <p>La santé de nos animaux est primordiale, plusieurs vétérinaires contrôlent avant ouverture du zoo de la bonne santé des animaux.</p>
+        </div>
+        <div class="col-lg-4">
+            <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="../../assets/img/environmental-protection.jpg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <h2 class="fw-normal">Ecologie</h2>
+            <p>Engagé également pour la protection de l’environnement, notre zoo est autosuffisant en énergies.</p>
+        </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="text-center reviews">
+        <h2 class="pb-3">Nos visiteurs témoignent!</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div>
+                    <p>"J'ai passé une journée inoubliable en famille, les enfants étaient ravis!"</p>
+                    <footer class="blockquote-footer">Mme Durand</footer>
+                </div>
             </div>
-            <div class="container-home-1">
-                <div class="container-left">
-                    <img src="/assets/img/panda.jpg" alt="panda">
+            <div class="col-lg-4">
+                <div>
+                    <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
+                    <footer class="blockquote-footer">M. Dupont</footer>
                 </div>
-                <div class="container-right">
-                    <p>Situé en Bretagne proche de la forêt de Brocéliande, nous sommes heureux de vous accueillir
-                        depuis
-                        1960.
-                    </p>
-                    <div class="link-home"><a href="#">Nous localiser</a></div>
+            </div>
+            <div class="col-lg-4">
+                <div>
+                    <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
+                    <footer class="blockquote-footer">M. Dupont</footer>
                 </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-            </div>
-            <div class="container-home-2">
-                <div class="container-left">
-                    <p>Venez vous aventurez dans la savane, la jungle et le marais.
-                        Découvrez plus de 30 espèces d’animaux.</p>
-                    <div class="link-home"><a href="#">Voir les habitats</a></div>
-                </div>
-                <div class="container-right">
-                    <img src="/assets/img/homme-girafe.jpg" alt="girafe">
-                </div>
-            </div>
-            <div class="container-home-3">
-                <div class="container-left">
-                    <img src="/assets/img/restauration.jpg" alt="restauration">
-                </div>
-                <div class="container-right">
-                    <p>Le parc vous propose plusieurs services pour agrémenter votre visite. </p>
-                    <div class="link-home"><a href="#">Voir les services</a></div>
-                </div>
-            </div>
-            </div>
-            </div>
-        </section>
-
-        <section class="section-home-2">
-            <h2>Nos valeurs</h2>
-            <div class="container-values">
-                <div class="container-house">
-                    <div class="icon"><i class="fa-solid fa-house"></i></div>
-                    <p>Soucieux du bien être de nos animaux, nous avons reproduits leurs habitats naturels. </p>
-                </div>
-                <div class="container-pulse">
-                    <div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <p>La santé de nos animaux est primordiales, plusieurs vétérinaires contrôlent avant ouverture
-                        du
-                        zoo de la bonne santé des animaux.</p>
-                </div>
-                <div class="container-leaf">
-                    <div class="icon"><i class="fa-solid fa-leaf"></i></div>
-                    <p>Engagé également pour la protection de l’environnement, notre zoo est autosuffisant en
-                        énergies.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-home-3">
-            <div class="title-review">
-                <h2>Les visiteurs témoignent</h2>
-                <div class="button-review"><button id="button-review" class="button2">Ajouter un
-                        avis</button></div>
-            </div>
-
-            <div class="container-review" id="review-1">
-                <p>“Un des plus beau zoo que j’ai visité, je conseille la visite en petit train, c’était super!”</p>
-                <span>Maurice, 06/02/2024
-                </span>
-            </div>
-            <div class="container-review" id="review-2">
-                <p>“Une super journée en famille.”</p>
-                <span>Léo, 06/01/2024
-                </span>
-            </div>
-            <div class="container-review" id="review-3">
-                <p>“Un très beau parc, le personnel est très attentionné.”</p>
-                <span>Huguette, 01/01/2024
-                </span>
-            </div>
-            <div class="link-review" id="linkReview"><a href="">Voir plus d'avis</a></div>
-
-
-        </section>
-    </section>
 </main>
-<?php require_once _ROOTPATH_ . '/templates/footer.php'; ?>
+
+<?php require_once _ROOTPATH_ . '/templates/footer.php' ?>

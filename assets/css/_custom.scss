@@ -1,0 +1,12 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+:root {
+    --primary: #4CAF7A;
+    --secondary: #cb0000;
+    --dark: #392C1E;
+    --black: #292222;
+    --font-family-sans-serif: "Montserrat", sans-serif;
+    --font-family-serif: "Montserrat", serif;
+
+    --bs-heading-color: var(--primary);
+}

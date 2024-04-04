@@ -1,43 +1,70 @@
 <?php require_once _ROOTPATH_ . '/templates/header.php'; ?>
 <main class="habitat">
-    <div class="container-habitat">
-        <div class="img-habitat"><img src=<?= _IMAGE_HABITAT_ . $habitat->getImage() ?> alt="">
-            <h3><?= ucwords($habitat->getName()) ?></h3>
-        </div>
-    </div>
-    <div class="description">
+    <div class="container">
+        <img class=" rounded" width="100%" height="auto" aria-hidden="true" src='<?= $habitat->getImagePath() ?>' alt="<?= $habitat->getName() ?>">
         <p><?= $habitat->getDescription() ?></p>
     </div>
-    <div class="list-animals">
-        <div class="list-title">
+    <div class="container ">
+        <div class="text-center">
             <h3>Liste des animaux:</h3>
         </div>
-    </div>
-    <div class="container-animals">
-        <?php foreach ($animals as $animal) : ?>
-            <div class="container-animal">
-                <a href=<?= $animalPath . $animal->getId() ?>>
-                    <div class=" img-animal"> <img src=<?= $animal->getImagePath() ?> alt="">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <?php foreach ($animals as $animal) : ?>
+
+                    <div class="col">
+                        <div class="card h-100">
+                            <img class="rounded-top" src=<?= $animal->getImagePath() ?> alt="">
+                            <table>
+                                <tr>
+                                    <th>Prénom:</th>
+                                    <td> <?= ucwords($animal->getFirstname()) ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Race:</th>
+                                    <td><?= $animal->getRace() ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Habitat:</th>
+                                    <td><?= $habitat->getName() ?></td>
+                                </tr>
+                            </table>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <table>
+                                            <tr>
+                                                <th>Etat:</th>
+                                                <td> <?= ucwords($animal->getFirstname()) ?></td>
+                                            </tr>
+                                        </table>
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="">
+                                    <div class="accordion-body">
+                                        <table>
+                                            <tr>
+                                                <th>Prénom:</th>
+                                                <td> <?= ucwords($animal->getFirstname()) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Race:</th>
+                                                <td><?= $animal->getRace() ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Habitat:</th>
+                                                <td><?= $habitat->getName() ?></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </a>
-                <div class="info-animal">
-                    <table>
-                        <tr>
-                            <th>Prénom:</th>
-                            <td> <?= ucwords($animal->getFirstname()) ?></td>
-                        </tr>
-                        <tr>
-                            <th>Race:</th>
-                            <td><?= $animal->getRace() ?></td>
-                        </tr>
-                        <tr>
-                            <th>Habitat:</th>
-                            <td><?= $habitat->getName() ?></td>
-                        </tr>
-                    </table>
-                </div>
+
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        </div>
     </div>
     <div class="back">
         <i class="fa-solid fa-angles-left"></i><a href="index.php?controller=habitat&action=list">Retour</a>
