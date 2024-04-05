@@ -43,7 +43,7 @@
     <div class=" container-fluid value text-center rounded pt-3 pb-3">
         <span> Le respect de nos valeurs et de nos animaux est très important! </span>
     </div>
-    <div class="row text-center pt-5">
+    <div class="row text-center pt-3">
         <div class="col-lg-4">
             <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="../../assets/img/panda.jpg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
             <h2 class="fw-normal">Bien être</h2>
@@ -61,45 +61,24 @@
         </div>
     </div>
     <hr class="featurette-divider">
-    <div class="text-center reviews">
-        <h2 class="pb-3">Nos visiteurs témoignent!</h2>
-        <div class="row">
-            <div class="col-lg-4">
-                <div>
-                    <p>"J'ai passé une journée inoubliable en famille, les enfants étaient ravis!"</p>
-                    <footer class="blockquote-footer">Mme Durand</footer>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div>
-                    <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
-                    <footer class="blockquote-footer">M. Dupont</footer>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div>
-                    <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
-                    <footer class="blockquote-footer">M. Dupont</footer>
-                </div>
-            </div>
+    <div class="text-center row justify-content-center reviews">
+        <h3 class="pb-2">Nos visiteurs témoignent!</h3>
+        <a class="pb-3" href="">Ajouter un avis</a>
+        <div class="border rounded pt-2 mb-3 fst-italic col-10 ">
+            <p>"J'ai passé une journée inoubliable en famille, les enfants étaient ravis!"</p>
+            <div class="blockquote-footer">Mme Durand</div>
         </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+
+        <div class="border rounded pt-2 mb-3 fst-italic col-10">
+            <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
+            <div class="blockquote-footer">M. Dupont</div>
+        </div>
+
+        <div class="border rounded pt-2 mb-3 fst-italic col-10">
+            <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
+            <div class="blockquote-footer">M. Dupont</div>
+        </div>
+        <a href="">Voir plus</a>
     </div>
 
 </main>

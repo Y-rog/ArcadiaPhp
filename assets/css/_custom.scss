@@ -1,12 +1,42 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 :root {
     --primary: #4CAF7A;
-    --secondary: #cb0000;
+    --secondary: #9c624ac9;
     --dark: #392C1E;
     --black: #292222;
+    --white: #fff;
     --font-family-sans-serif: "Montserrat", sans-serif;
     --font-family-serif: "Montserrat", serif;
 
     --bs-heading-color: var(--primary);
+
+    --bs-btn--primary-color: var(--primary);
+
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    z-index: 5;
+
+    &:hover {
+        color: var(--secondary);
+    }
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.nav-link {
+    color: var(--primary);
+
+    &:hover {
+        color: var(--white);
+        background: var(--primary);
+        border-radius: 5px;
+    }
 }

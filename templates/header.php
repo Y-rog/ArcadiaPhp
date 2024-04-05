@@ -17,10 +17,10 @@ use App\Security\Security;
 
 <body>
 
-    <header class="pb-2">
+    <header class="pb-2 px-4">
         <nav class="navbar navbar-expand-lg  border-bottom">
             <div class="container-fluid">
-                <a href="/" class="d-flex col-4 ">
+                <a href="/" class="d-flex justify-content-start col-4 ">
                     <img width="200" src="../assets/img/logo-svg.svg" alt="logo Arcadia" class="img-fluid">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,15 @@ use App\Security\Security;
                         <a class="nav-link" href=" index.php?controller=service&action=list">Services</a>
                         <a class="nav-link">Contact</a>
                     </div>
+                    <div class="navbar-nav col-lg-6 justify-content-end">
+                        <?php if (Security::isLogged()) { ?>
+                            <a class=" nav-link" href=" /index.php?controller=auth&action=logout">Déconnexion</a>
+                        <?php } else { ?>
+                            <a class="nav-link" href="/index.php?controller=auth&action=login">Espace administration <i class="bi bi-person-fill-lock"></i></a>
+                        <?php } ?>
+                    </div>
                 </div>
+
             </div>
         </nav>
     </header>
