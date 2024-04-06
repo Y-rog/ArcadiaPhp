@@ -63,7 +63,45 @@
     <hr class="featurette-divider">
     <div class="text-center row justify-content-center reviews">
         <h3 class="pb-2">Nos visiteurs témoignent!</h3>
-        <a class="pb-3" href="">Ajouter un avis</a>
+        <div class="pb-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addReview">
+                Ajouter un avis
+            </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="addReview" tabindex="-1" aria-labelledby="addReviewLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addReviews">Ajouter un avis</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class=" mb-3">
+                                <div class=" mb-3 text-start">
+                                    <label for="user_name" class="form-label">Pseudo</label>
+                                    <input type="user_name" class="form-control <?= (isset($errors['first_name']) ? 'is-invalid' : '') ?>" id="user_name" name="user_name">
+                                    <?php if (isset($errors['user_name'])) { ?>
+                                        <div class="invalid-feedback"><?= $errors['user_name'] ?></div>
+                                    <?php } ?>
+                                </div>
+                                <div class="mb-3 text-start ">
+                                    <label for="content" class="form-label">Avis</label>
+                                    <textarea class="form-control" id="content" name="content"></textarea>
+                                </div>
+                                <div class="row d-flex justify-content-center pt-2">
+                                    <input type="submit" name="addReview" class="btn btn-primary" value="Envoyer">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="border rounded pt-2 mb-3 fst-italic col-10 ">
             <p>"J'ai passé une journée inoubliable en famille, les enfants étaient ravis!"</p>
             <div class="blockquote-footer">Mme Durand</div>

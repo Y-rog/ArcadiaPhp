@@ -29,6 +29,23 @@ a {
 .btn-primary {
     background-color: var(--primary);
     border-color: var(--primary);
+
+    &:hover {
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+    }
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+
+    &:hover {
+        color: var(--white);
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+
 }
 
 .nav-link {

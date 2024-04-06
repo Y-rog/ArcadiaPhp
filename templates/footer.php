@@ -3,7 +3,7 @@
 use App\Security\Security; ?>
 
 
-<footer class="container-fluid py-3 my-4 px-4">
+<footer class="container-fluid px-4">
     <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex jsutify-content-start align-items-center">
             <a href="/">
@@ -27,5 +27,7 @@ use App\Security\Security; ?>
 
 </body>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
 
 </html>

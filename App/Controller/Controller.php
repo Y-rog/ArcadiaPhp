@@ -10,35 +10,34 @@ class Controller
             //on verrifie si le controller est défini dans l'url
             if (isset($_GET['controller'])) {
                 switch ($_GET['controller']) {
+                    case 'animal':
+                        $controller = new AnimalController();
+                        $controller->route();
+                        break;
+                    case 'auth':
+                        $controller = new AuthController();
+                        $controller->route();
+                        break;
+                    case 'habitat':
+                        $controller = new HabitatController();
+                        $controller->route();
+                        break;
+                    case 'page':
+                        $controller = new PageController();
+                        $controller->route();
+                        break;
+                    case 'review':
+                        $controller = new ReviewController();
+                        $controller->route();
+                        break;
+                    case 'service':
+                        $controller = new ServiceController();
+                        $controller->route();
+                        break;
                     case 'user':
                         $userController = new UserController();
                         $userController->route();
                         break;
-                        //Charger Controller Auth
-                    case 'auth':
-                        $authController = new AuthController();
-                        $authController->route();
-                        break;
-                        //Charger Controller Page Home
-                    case 'page':
-                        $pageController = new PageController();
-                        $pageController->route();
-                        break;
-                        //Charger Controller Page Habitat
-                    case 'habitat':
-                        $pageController = new HabitatController();
-                        $pageController->route();
-                        break;
-                    case 'animal':
-                        $pageController = new AnimalController();
-                        $pageController->route();
-                        break;
-                        //Charger  Page Service
-                    case 'service':
-                        $pageController = new ServiceController();
-                        $pageController->route();
-                        break;
-                        //Par défaut charger erreur
                     default:
                         throw new \Exception("Le controller n'existe pas");
                         break;

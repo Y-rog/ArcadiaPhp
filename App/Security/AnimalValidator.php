@@ -8,10 +8,10 @@ use App\Entity\Animal;
 class AnimalValidator extends Security
 {
 
-    public function animalValidate(Animal $animal): array
+    public function validate(Animal $animal): array
     {
         $errors = [];
-        if (empty($animal->getFirstname())) {
+        if (empty($animal->getFirstName())) {
             $errors['firstname'] = 'Le prénom est obligatoire';
         }
         if (empty($animal->getRace())) {

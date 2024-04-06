@@ -13370,6 +13370,20 @@ a:hover {
   background-color: var(--primary);
   border-color: var(--primary);
 }
+.btn-primary:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-outline-primary:hover {
+  color: var(--white);
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
 
 .nav-link {
   color: var(--primary);
@@ -13392,6 +13406,10 @@ body {
 footer {
   bottom: 0;
   position: absolute;
+}
+
+textarea {
+  resize: none;
 }
 
 .habitat {
@@ -13437,6 +13455,6 @@ footer {
   color: white;
 }
 
-.btn {
+.btn-primary {
   width: 100px;
 }/*# sourceMappingURL=index.css.map */

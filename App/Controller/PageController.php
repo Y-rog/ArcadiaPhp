@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Repository\ReviewRepository;
+use App\Entity\Review;
+use App\Security\ReviewValidator;
+
 class PageController extends Controller
 {
     public function route(): void
@@ -35,14 +39,34 @@ class PageController extends Controller
 
     protected function home(): void
     {
-        /*$params = [
+        try {
+            $errors = [];
+            $review = new Review();
+
+            if (isset($_POST['addReview'])) {
+                $review->hydrate($_POST);
+                $reviewValidator = new ReviewValidator();
+                $errors = $reviewValidator->validate($review);
+                if (empty($errors)) {
+                    $reviewRepository = new ReviewRepository();
+                    $reviewRepository->insert($review);
+                    header('Location: index.php?controller=page&action=home');
+                }
+            }
+            /*$params = [
             'title' => 'Accueil',
             'PageTitle' => 'Bienevenue au zoo',
         ];*/
-        $this->render('page/home', [
-            'title' => 'Accueil',
-            'pageTitle' => 'Bienvenue au zoo',
-        ]);
+            $this->render('page/home', [
+                'title' => 'Accueil',
+                'pageTitle' => 'Bienvenue au zoo',
+            ]);
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage(),
+                'pageTitle' => 'Erreur',
+            ]);
+        }
     }
 
     protected function contact(): void

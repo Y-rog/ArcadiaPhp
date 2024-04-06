@@ -5,7 +5,6 @@ namespace App\Repository;
 use App\Entity\User;
 use App\Db\Mysql;
 use App\Tools\StringTools;
-use App\Repository\Repository;
 
 class UserRepository extends Repository
 {

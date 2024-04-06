@@ -79,7 +79,7 @@ class AnimalController extends Controller
 
                 $animal->hydrate($_POST);
 
-                $errors = (new AnimalValidator())->animalValidate($animal);
+                $errors = (new AnimalValidator())->validate($animal);
 
                 if (empty($errors)) {
                     $animalRepository = new AnimalRepository();
@@ -114,7 +114,7 @@ class AnimalController extends Controller
 
                 $animal->hydrate($_POST);
 
-                $errors = (new AnimalValidator())->animalValidate($animal);
+                $errors = (new AnimalValidator())->validate($animal);
 
                 if (empty($errors)) {
                     $animalRepository->insert($animal);
