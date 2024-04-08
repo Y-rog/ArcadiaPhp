@@ -12,7 +12,7 @@ class ReviewValidator extends Security
     {
         $errors = [];
         if (empty($review->getUserName())) {
-            $errors['user_name'] = 'Le prénom est obligatoire';
+            $errors['user_name'] = 'Le pseudo est obligatoire';
         }
         if (empty($review->getContent())) {
             $errors['content'] = 'Le contenu est obligatoire';

@@ -20,4 +20,10 @@ class StringTools extends Tools
 
         return self::toCamelCase($value, true);
     }
+
+    public static function formatDateTime($date)
+    {
+        $date = new \DateTime($date);
+        return $date->format('d/m/Y H:i:s');
+    }
 }

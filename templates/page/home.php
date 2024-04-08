@@ -74,7 +74,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="addReviews">Ajouter un avis</h1>
+                        <h1 class="modal-title text-center fs-5" id="addReviews">Ajouter un avis</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -82,10 +82,7 @@
                             <div class=" mb-3">
                                 <div class=" mb-3 text-start">
                                     <label for="user_name" class="form-label">Pseudo</label>
-                                    <input type="user_name" class="form-control <?= (isset($errors['first_name']) ? 'is-invalid' : '') ?>" id="user_name" name="user_name">
-                                    <?php if (isset($errors['user_name'])) { ?>
-                                        <div class="invalid-feedback"><?= $errors['user_name'] ?></div>
-                                    <?php } ?>
+                                    <input type="user_name" class="form-control" id="user_name" name="user_name">
                                 </div>
                                 <div class="mb-3 text-start ">
                                     <label for="content" class="form-label">Avis</label>

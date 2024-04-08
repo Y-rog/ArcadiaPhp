@@ -51,7 +51,7 @@ class PageController extends Controller
                     $reviewRepository = new ReviewRepository();
                     $reviewRepository->insert($review);
                     header('Location: index.php?controller=page&action=home');
-                }
+                } else throw new \Exception("Le formulaire contient des erreurs");
             }
             /*$params = [
             'title' => 'Accueil',
@@ -60,6 +60,7 @@ class PageController extends Controller
             $this->render('page/home', [
                 'title' => 'Accueil',
                 'pageTitle' => 'Bienvenue au zoo',
+                'errors' => $errors,
             ]);
         } catch (\Exception $e) {
             $this->render('errors/default', [

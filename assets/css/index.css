@@ -13355,6 +13355,7 @@ textarea.form-control-lg {
   --font-family-serif: "Montserrat", serif;
   --bs-heading-color: var(--primary);
   --bs-btn--primary-color: var(--primary);
+  --bs-link-color: var(--primary);
 }
 
 a {
