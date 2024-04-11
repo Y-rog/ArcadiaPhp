@@ -21,6 +21,8 @@ class ReviewController extends Controller
                         $this->isValidated();
                         //on appelle la méthode delete
                         $this->delete();
+                        //on appelle la méthode updateFavorite
+                        $this->updateFavorite();
                         break;
                     default:
                         throw new \Exception("Cette action n'existe pas : " . $_GET['action']);
@@ -82,6 +84,28 @@ class ReviewController extends Controller
             //on valide l'avis
             $reviewRepository->validate($review);
             //on redirige vers la page list
+            header('location: index.php?controller=review&action=list');
+            exit;
+        } else if (isset($_POST['unvalidateReview'])) {
+            $reviewRepository = new ReviewRepository();
+            $review = $reviewRepository->findOneById($_POST['id']);
+            $reviewRepository->unvalidate($review);
+            header('location: index.php?controller=review&action=list');
+            exit;
+        }
+    }
+
+    protected function updateFavorite()
+    {
+        if (isset($_POST['favoriteReview'])) {
+            $reviewRepository = new ReviewRepository();
+            $review = $reviewRepository->findOneById($_POST['id']);
+            $reviewRepository->favorite($review);
+            header('location: index.php?controller=review&action=list');
+        } else if (isset($_POST['unfavoriteReview'])) {
+            $reviewRepository = new ReviewRepository();
+            $review = $reviewRepository->findOneById($_POST['id']);
+            $reviewRepository->unfavorite($review);
             header('location: index.php?controller=review&action=list');
         }
     }

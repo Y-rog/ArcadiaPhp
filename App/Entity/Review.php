@@ -12,6 +12,7 @@ class Review extends Entity
     protected ?string $content = '';
     protected DateTime $created_at;
     protected ?bool $is_validated = false;
+    protected ?bool $on_home_page = false;
 
     /**
      * Get the value of id
@@ -109,6 +110,26 @@ class Review extends Entity
     public function setIsValidated($is_validated): self
     {
         $this->is_validated = $is_validated;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of is_validated
+     */
+    public function getOnHomePage(): bool
+    {
+        return $this->on_home_page;
+    }
+
+    /**
+     * Set the value of is_validated
+     *
+     * @return  self
+     */
+    public function setOnHomePage($on_home_page): self
+    {
+        $this->on_home_page = $on_home_page;
 
         return $this;
     }

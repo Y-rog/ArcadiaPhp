@@ -55,12 +55,48 @@ class ReviewRepository extends Repository
         return null;
     }
 
+    public function findReviewHomePage()
+    {
+        $query = $this->pdo->query('SELECT * FROM review WHERE on_home_page = 1');
+        $reviews = $query->fetchAll($this->pdo::FETCH_ASSOC);
+        $reviewEntities = [];
+        if ($reviews) {
+            foreach ($reviews as $review) {
+                $reviewEntities[] = Review::createAndHydrate($review);
+            }
+        }
+        return $reviewEntities;
+    }
+
     public function validate(Review $review)
     {
         $query = $this->pdo->prepare('UPDATE review SET is_validated = 1 WHERE id = :id');
         $query->bindValue(':id', $review->getId(), $this->pdo::PARAM_INT);
         return $query->execute();
     }
+
+    public function unvalidate(Review $review)
+    {
+        $query = $this->pdo->prepare('UPDATE review SET is_validated = 0 WHERE id = :id');
+        $query->bindValue(':id', $review->getId(), $this->pdo::PARAM_INT);
+        return $query->execute();
+    }
+
+    public function favorite(Review $review)
+    {
+        $query = $this->pdo->prepare('UPDATE review SET on_home_page = 1 WHERE id = :id');
+        $query->bindValue(':id', $review->getId(), $this->pdo::PARAM_INT);
+        return $query->execute();
+    }
+
+    public function unfavorite(Review $review)
+    {
+        $query = $this->pdo->prepare('UPDATE review SET on_home_page = 0 WHERE id = :id');
+        $query->bindValue(':id', $review->getId(), $this->pdo::PARAM_INT);
+        return $query->execute();
+    }
+
+
 
     public function delete(Review $review)
     {

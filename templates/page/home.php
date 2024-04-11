@@ -102,22 +102,12 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="border rounded pt-2 mb-3 fst-italic col-10 ">
-            <p>"J'ai passé une journée inoubliable en famille, les enfants étaient ravis!"</p>
-            <div class="blockquote-footer">Mme Durand</div>
-        </div>
-
-        <div class="border rounded pt-2 mb-3 fst-italic col-10">
-            <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
-            <div class="blockquote-footer">M. Dupont</div>
-        </div>
-
-        <div class="border rounded pt-2 mb-3 fst-italic col-10">
-            <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
-            <div class="blockquote-footer">M. Dupont</div>
-        </div>
+        <?php foreach ($reviews as $review) { ?>
+            <div class="border rounded pt-2 mb-3 fst-italic col-10">
+                <p><?= $review->getContent() ?></p>
+                <div class="blockquote-footer"><?= $review->getUsername(); ?>, le <?= ($review->getCreatedAt())->format('d/m/Y'); ?></div>
+            </div>
+        <?php } ?>
         <a href="index.php?controller=review&action=list">Voir plus</a>
     </div>
 

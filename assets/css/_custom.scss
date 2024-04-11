@@ -98,11 +98,35 @@ a {
     }
 }
 
+i {
+    .btn {
+        color: var(--bs-warning-rgb);
+
+        &:hover {
+            color: var(--bs-warning-rgb);
+            background: var(--bs-warning-rgb);
+        }
+    }
+}
+
 .bi-star-fill,
 .bi-star {
     cursor: pointer;
     transition: color 0.3s;
     transform: scale(1.2);
-    color: var(--primary);
-    translate: 0.3s;
+    color: #FFC107;
+    border: none;
+
+    &:hover {
+        color: #FFD700;
+    }
+
+    &.active {
+        color: #FFD700;
+    }
+
+    &.focus {
+        color: #FFD700;
+        border: none;
+    }
 }

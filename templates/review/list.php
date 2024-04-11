@@ -1,33 +1,37 @@
 <?php require_once _ROOTPATH_ . '/templates/header.php'; ?>
 
-<script src="/assets/js/review/list.js" defer></script>
-
 <main class="container pt-1 pb-5">
     <div class="justify-content-center text-center pb-3">
         <h1 class="pb-3">Liste des avis</h1>
 
-        <div class="text-center row justify-content-center reviews">
+        <div class="text-center row justify-content-evenly reviews">
             <?php foreach ($reviews as $review) { ?>
                 <div class="border rounded pt-2 mb-3 fst-italic col-10">
                     <p><?= $review->getContent() ?></p>
                     <div class="blockquote-footer"><?= $review->getUsername(); ?>, le <?= ($review->getCreatedAt())->format('d/m/Y'); ?></div>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
                         <form method="POST" class="pb-2">
                             <input type="hidden" name="id" value="<?= $review->getId() ?>">
-                            <?php if ($review->getIsValidated() == 1) { ?>
-                                <input type="submit" class="btn btn-success" value="Validé" disabled>
-                            <?php } else { ?>
+                            <?php if ($review->getIsValidated() == 0) { ?>
                                 <input type="submit" class="btn btn-success" value="Valider" name="validateReview">
+                            <?php } else { ?>
+                                <input type="submit" class="btn btn-outline-success" value="validé" name="unvalidateReview">
                             <?php } ?>
                         </form>
                         <?php if ($review->getIsValidated() == 1) { ?>
-                            <div>
-                                <i id="star" class="bi fs-3 bi-star"></i>
-                                <i id="starFill" class="d-none bi fs-3 bi-star-fill"></i>
-                            </div>
+                            <form method="POST" class="pb-2">
+                                <input type="hidden" name="id" value="<?= $review->getId() ?>">
+                                <?php if ($review->getOnHomePage() == 0) { ?>
+                                    <button type="submit" class="btn fs-3 bi bi-star" name="favoriteReview">
+                                    </button>
+                                <?php } else { ?>
+                                    <button type="submit" class="btn  fs-3 bi bi-star-fill" name="unfavoriteReview">
+                                    </button>
+                                <?php } ?>
+                            </form>
                         <?php } ?>
-                        <div>
-                            <button type="button" class="btn btn-danger pb-2" data-bs-toggle="modal" data-bs-target="#deleteReview">
+                        <div class="pb-2">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteReview">
                                 Supprimer
                             </button>
                         </div>

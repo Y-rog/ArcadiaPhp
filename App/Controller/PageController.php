@@ -39,15 +39,22 @@ class PageController extends Controller
 
     protected function home(): void
     {
-        /*$params = [
-            'title' => 'Accueil',
-            'PageTitle' => 'Bienevenue au zoo',
-        ];*/
-        $this->render('page/home', [
-            'title' => 'Accueil',
-            'pageTitle' => 'Bienvenue au zoo',
-        ]);
+
+        try {
+            $reviewRepository = new ReviewRepository();
+            $reviews = $reviewRepository->findReviewHomePage();
+            $this->render('page/home', [
+                'reviews' => $reviews,
+                'pageTitle' => 'Accueil',
+            ]);
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage(),
+                'pageTitle' => 'Erreur',
+            ]);
+        }
     }
+
 
     protected function addReview(): void
     {

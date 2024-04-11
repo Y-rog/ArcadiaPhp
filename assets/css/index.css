@@ -13429,6 +13429,14 @@ a:hover {
   border-radius: 5px;
 }
 
+i .btn {
+  color: var(--bs-warning-rgb);
+}
+i .btn:hover {
+  color: var(--bs-warning-rgb);
+  background: var(--bs-warning-rgb);
+}
+
 .bi-star-fill,
 .bi-star {
   cursor: pointer;
@@ -13436,8 +13444,21 @@ a:hover {
   transition: color 0.3s;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  color: var(--primary);
-  translate: 0.3s;
+  color: #FFC107;
+  border: none;
+}
+.bi-star-fill:hover,
+.bi-star:hover {
+  color: #FFD700;
+}
+.bi-star-fill.active,
+.bi-star.active {
+  color: #FFD700;
+}
+.bi-star-fill.focus,
+.bi-star.focus {
+  color: #FFD700;
+  border: none;
 }
 
 html {
