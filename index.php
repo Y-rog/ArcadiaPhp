@@ -1,5 +1,4 @@
-<?php
-require_once 'config.php';
+<?php require_once 'config.php';
 
 //Sécurise le cookie de session
 session_set_cookie_params([
@@ -9,6 +8,7 @@ session_set_cookie_params([
 ]);
 
 session_start();
+
 define('_ROOTPATH_', __DIR__);
 define('_TEMPLATESPATH_', _ROOTPATH_ . '/templates');
 

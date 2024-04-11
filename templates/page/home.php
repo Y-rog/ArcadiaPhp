@@ -1,4 +1,6 @@
 <?php require_once _ROOTPATH_ . '/templates/header.php' ?>
+<script src="/assets/js/home/review.js" defer></script>
+
 <main class="container">
     <div class="home-big-title text-center pb-3">
         <img class="rounded " src="../../assets/img/home-elephant.jpg" alt="image elephant" aria-hidden="true">
@@ -88,6 +90,9 @@
                                     <label for="content" class="form-label">Avis</label>
                                     <textarea class="form-control" id="content" name="content"></textarea>
                                 </div>
+                                <div>
+                                    <input type="hidden" name="is_validated" value="0">
+                                </div>
                                 <div class="row d-flex justify-content-center pt-2">
                                     <input type="submit" name="addReview" class="btn btn-primary" value="Envoyer">
                                 </div>
@@ -113,7 +118,7 @@
             <p>"Un zoo magnifique, des animaux en pleine forme, un personnel très accueillant."</p>
             <div class="blockquote-footer">M. Dupont</div>
         </div>
-        <a href="">Voir plus</a>
+        <a href="index.php?controller=review&action=list">Voir plus</a>
     </div>
 
 </main>

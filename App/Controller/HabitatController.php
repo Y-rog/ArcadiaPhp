@@ -115,7 +115,7 @@ class HabitatController extends Controller
                 //on vérifie si le formulaire a été soumis
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     //on vérifie si le formulaire est valide
-                    if ($this->validateForm()) {
+                    if ($this->validate()) {
                         //on met à jour l'habitat
                         $habitat->setName($_POST['name']);
                         $habitat->setDescription($_POST['description']);

@@ -17,8 +17,11 @@ class ReviewController extends Controller
                     case 'list':
                         // on appelle la méthode list
                         $this->list();
+                        //on appelle la méthode isValidated
+                        $this->isValidated();
+                        //on appelle la méthode delete
+                        $this->delete();
                         break;
-
                     default:
                         throw new \Exception("Cette action n'existe pas : " . $_GET['action']);
                         break;
@@ -40,20 +43,18 @@ class ReviewController extends Controller
         try {
             //on instancie la classe ReviewRepository
             $reviewRepository = new ReviewRepository();
-            //on récupère la page demandée
-            $currentPage = (int)($_GET['page'] ?? 1);
             //on récupère le nombre total d'avis
             $count = $reviewRepository->count();
             //on définit le nombre d'avis par page
-            $perPage = 2;
+            $perPage =  5;
             //on détermine le nombre de pages en arrondissant au supérieur
             $pages = ceil($count / $perPage);
-            //on vérifie si la page demandée est supérieure au nombre de pages
-            if ($currentPage > $pages) {
-                $currentPage = $pages;
+            /*On vérifie si la page demandée existe et on la récupère et on conditionne pour éviter les injections SQL*/
+            if (isset($_GET['page']) && $_GET['page'] > 0  && $_GET['page'] <= $pages) {
+                $currentPage = (int) $_GET['page'];
+            } else {
+                $currentPage = 1;
             }
-            //on calcule les articles à afficher ex: page 1 => articles de 0 à 10 page 2 => articles de 10 à 20
-            $offset = ($currentPage - 1) * $perPage;
             //on récupère les articles par pages
             $reviews = $reviewRepository->showPageReviews($currentPage, $perPage);
             //on affiche la vue
@@ -61,13 +62,42 @@ class ReviewController extends Controller
                 'reviews' => $reviews,
                 'currentPage' => $currentPage,
                 'pages' => $pages,
-
             ]);
         } catch (\Exception $e) {
             $this->render('errors/default', [
                 'error' => $e->getMessage(),
                 'pageTitle' => 'Erreur',
             ]);
+        }
+    }
+
+    protected function isValidated()
+    {
+        //on vérifie si le bouton valider a été cliqué
+        if (isset($_POST['validateReview'])) {
+            //on instancie la classe ReviewRepository
+            $reviewRepository = new ReviewRepository();
+            //on récupère l'avis par son id
+            $review = $reviewRepository->findOneById($_POST['id']);
+            //on valide l'avis
+            $reviewRepository->validate($review);
+            //on redirige vers la page list
+            header('location: index.php?controller=review&action=list');
+        }
+    }
+
+    protected function delete()
+    {
+        //on vérifie si le bouton supprimer a été cliqué
+        if (isset($_POST['deleteReview'])) {
+            //on instancie la classe ReviewRepository
+            $reviewRepository = new ReviewRepository();
+            //on récupère l'avis par son id
+            $review = $reviewRepository->findOneById($_POST['id']);
+            //on supprime l'avis
+            $reviewRepository->delete($review);
+            //on redirige vers la page list
+            header('location: index.php?controller=review&action=list');
         }
     }
 }

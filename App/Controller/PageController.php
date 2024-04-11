@@ -15,7 +15,7 @@ class PageController extends Controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
                     case 'home':
-                        //on appelle la méthode home
+                        $this->addReview();
                         $this->home();
                         break;
                     case 'contact':
@@ -39,6 +39,19 @@ class PageController extends Controller
 
     protected function home(): void
     {
+        /*$params = [
+            'title' => 'Accueil',
+            'PageTitle' => 'Bienevenue au zoo',
+        ];*/
+        $this->render('page/home', [
+            'title' => 'Accueil',
+            'pageTitle' => 'Bienvenue au zoo',
+        ]);
+    }
+
+    protected function addReview(): void
+    {
+
         try {
             $errors = [];
             $review = new Review();
@@ -51,17 +64,9 @@ class PageController extends Controller
                     $reviewRepository = new ReviewRepository();
                     $reviewRepository->insert($review);
                     header('Location: index.php?controller=page&action=home');
+                    exit();
                 } else throw new \Exception("Le formulaire contient des erreurs");
             }
-            /*$params = [
-            'title' => 'Accueil',
-            'PageTitle' => 'Bienevenue au zoo',
-        ];*/
-            $this->render('page/home', [
-                'title' => 'Accueil',
-                'pageTitle' => 'Bienvenue au zoo',
-                'errors' => $errors,
-            ]);
         } catch (\Exception $e) {
             $this->render('errors/default', [
                 'error' => $e->getMessage(),

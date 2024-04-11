@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Review;
+use App\Controller\ReviewController;
 use App\Db\Mysql;
 use App\Tools\StringTools;
 
@@ -17,34 +18,11 @@ class ReviewRepository extends Repository
 
     public function showPageReviews($currentPage, $perPage)
     {
-        // On récupère la page demandée
-        $currentPage = (int)($_GET['page'] ?? 1);
-        if ($currentPage < 1) {
-            $currentPage = 1;
-        }
-        var_dump($currentPage);
-        // On récupère le nombre total d'avis'
-        $count = $this->count();
-        var_dump($count);
 
-        //On définit le nombre d'avis par page
-        $perPage = 2;
-        var_dump($perPage);
-
-        //détermine le nombre de pages en arrondissant au supérieur
-        $pages = ceil($count / $perPage);
-        var_dump($pages);
-        if ($currentPage > $pages) {
-            $currentPage = $pages;
-        }
-
-        // On calcule les articles à afficher ex:page 1 => artciles de 0 à 10 page 2 => articles de 10 à 20
-        $offset = ($currentPage - 1) * $perPage;
-        var_dump($offset);
+        /* OFFSET: On calcule les articles à afficher ex:page 1 => artciles de 0 à 10 page 2 => articles de 10 à 20*/
 
         // On récupère les articles par pages
-        $reviews = $this->pdo->query('SELECT * FROM review LIMIT ' . $perPage . ' OFFSET ' . $offset)->fetchAll($this->pdo::FETCH_ASSOC);
-        var_dump($reviews);
+        $reviews = $this->pdo->query('SELECT * FROM review ORDER BY created_at DESC LIMIT ' . $perPage . ' OFFSET ' . ($currentPage - 1) * $perPage)->fetchAll($this->pdo::FETCH_ASSOC);
 
         //On hydrate les articles
         $reviewEntities = [];
@@ -54,7 +32,6 @@ class ReviewRepository extends Repository
             }
         }
         return $reviewEntities;
-        var_dump($reviewEntities);
     }
 
 
@@ -64,6 +41,25 @@ class ReviewRepository extends Repository
         $query->bindValue(':user_name', $review->getUserName(), $this->pdo::PARAM_STR);
         $query->bindValue(':content', $review->getContent(), $this->pdo::PARAM_STR);
         $query->execute();
+    }
+
+    public function findOnebyId($id)
+    {
+        $query = $this->pdo->prepare('SELECT * FROM review WHERE id = :id');
+        $query->bindValue(':id', $id, $this->pdo::PARAM_INT);
+        $query->execute();
+        $review = $query->fetch($this->pdo::FETCH_ASSOC);
+        if ($review) {
+            return Review::createAndHydrate($review);
+        }
+        return null;
+    }
+
+    public function validate(Review $review)
+    {
+        $query = $this->pdo->prepare('UPDATE review SET is_validated = 1 WHERE id = :id');
+        $query->bindValue(':id', $review->getId(), $this->pdo::PARAM_INT);
+        return $query->execute();
     }
 
     public function delete(Review $review)

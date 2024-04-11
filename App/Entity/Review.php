@@ -8,9 +8,10 @@ use DateTime;
 class Review extends Entity
 {
     protected ?int $id = null;
-    protected string $user_name = '';
-    protected string $content = '';
+    protected ?string $user_name = '';
+    protected ?string $content = '';
     protected DateTime $created_at;
+    protected ?bool $is_validated = false;
 
     /**
      * Get the value of id
@@ -88,6 +89,26 @@ class Review extends Entity
     public function setCreatedAt(DateTime $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of is_validated
+     */
+    public function getIsValidated(): bool
+    {
+        return $this->is_validated;
+    }
+
+    /**
+     * Set the value of is_validated
+     *
+     * @return  self
+     */
+    public function setIsValidated($is_validated): self
+    {
+        $this->is_validated = $is_validated;
 
         return $this;
     }
